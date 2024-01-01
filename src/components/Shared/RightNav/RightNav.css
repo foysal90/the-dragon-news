@@ -1,0 +1,18 @@
+.social {
+    list-style: none;
+    margin-top: 20px;
+    margin-left: -30px;
+    text-decoration: none;
+}
+.social li {
+    border: 1px solid rgba(0, 0, 0, 0.118);
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+
+}
+.links {
+    
+    text-decoration: none;
+
+}
