@@ -4,15 +4,23 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import moment from "moment";
 import Marquee from "react-fast-marquee";
+import { FaUserAlt } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { AiOutlineLogout } from "react-icons/ai";
 import {
   Button,
   Container,
-  Form,
+
   Nav,
+ 
   NavDropdown,
+ 
   Navbar,
 } from "react-bootstrap";
+import { FcPortraitMode, FcSettings } from "react-icons/fc";
 const Header = () => {
+  const userIcon = <FaUserAlt  />
   return (
     <Container>
       <div className="text-center">
@@ -45,7 +53,18 @@ const Header = () => {
             
           </Nav>
           <Nav>
-            <Nav.Link to='/'>Profile</Nav.Link>
+          <NavDropdown title={userIcon} id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1"><FcPortraitMode />Profile</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+               <FcSettings /> Settings
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"><TbLayoutDashboard /> Dashboard</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+              <AiOutlineLogout /> Logout
+              </NavDropdown.Item>
+            </NavDropdown>
+            {/* <Nav.Link to='/'><FaUserAlt  /></Nav.Link> */}
             <Nav.Link eventKey={2} to='/signin'>
             <Button variant="secondary">Login</Button>
             </Nav.Link>

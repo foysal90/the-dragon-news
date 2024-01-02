@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { Container,Button } from "react-bootstrap";
 import './RightNav.css'
 import { Link, Navigate } from "react-router-dom";
+import QZone from "../../Pages/Qzone";
 
 const RightNav = () => {
   const { setUser, googleSignIn } = useContext(AuthContext);
@@ -42,6 +43,13 @@ const RightNav = () => {
             <li className="w-75"> <FaTwitter className="me-2"/>  Twitter</li>
             <li className="w-75" > <FaInstagram className="me-2"/>  Instagram</li>
         </ul>
+     </div>
+     <QZone/>
+     <div className="bg-img">
+        <h2>Create an Amazing Newspaper </h2>
+        <p>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
+        <Button className="bg-danger p-3">Learn More</Button>
+
      </div>
     </Container>
   );
