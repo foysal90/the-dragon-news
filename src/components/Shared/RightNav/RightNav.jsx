@@ -24,11 +24,11 @@ const RightNav = () => {
 
   return (
     <Container >
-      <h6 >Login With</h6>
+      <h6  >Login With</h6>
       <div >
-        <Button className="w-75 bg-light text-primary" onClick={handleGoogleSignIn}>
-            <FcGoogle className="me-2" /> Login with Google</Button>
-        <Button className="mt-2  w-75 bg-light text-secondary" onClick={handleGoogleSignIn}>
+        <Button className="w-75 bg-light text-primary flex leading-none" onClick={handleGoogleSignIn}>
+            <FcGoogle className="me-2 " /> Login with Google</Button>
+        <Button className="mt-2  w-75 bg-white text-secondary flex leading-none" onClick={handleGoogleSignIn}>
         <FaGithub className="me-2" /> Login with Github
         </Button>
       </div>
@@ -37,18 +37,19 @@ const RightNav = () => {
         <h5>Find Us On</h5>
         <ul className="social">
             <li className="w-75 ">
-                <Link className="links text-secondary" to="https://www.facebook.com/"> <FaFacebook className="me-2 text-primary"/>
+                <Link className="links text-secondary flex leading-none gap-2" to="https://www.facebook.com/"> <FaFacebook className="text-primary"/>
                  Facebook
                  </Link></li>
-            <li className="w-75"> <FaTwitter className="me-2"/>  Twitter</li>
-            <li className="w-75" > <FaInstagram className="me-2"/>  Instagram</li>
+            <li className="w-75 flex leading-none gap-2"> <FaTwitter className=""/>  Twitter</li>
+            <li className="w-75 flex leading-none gap-2" > <FaInstagram className=""/>  Instagram</li>
         </ul>
      </div>
+     <br />
      <QZone/>
      <div className="bg-img">
         <h2>Create an Amazing Newspaper </h2>
         <p>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
-        <Button className="bg-danger p-3">Learn More</Button>
+        <button className="bg-red-900 p-3">Learn More</button>
 
      </div>
     </Container>

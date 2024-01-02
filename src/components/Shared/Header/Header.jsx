@@ -24,14 +24,14 @@ const Header = () => {
   return (
     <Container>
       <div className="text-center">
-        <img src={logo} alt="" />
+        <img className="mx-auto" src={logo} alt="" />
         <p className="text-secondary">
           <small>Journalism Without Fear or Favour</small>
         </p>
         <p>{moment().format("dddd, MMMM D, YYYY")}</p>
       </div>
       <div className="d-flex">
-        <Button variant="danger">Latest</Button>
+        <Button className="bg-red-700">Latest</Button>
         <Marquee
           className="text-danger"
           speed={70}
@@ -54,19 +54,19 @@ const Header = () => {
           </Nav>
           <Nav>
           <NavDropdown title={userIcon} id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"><FcPortraitMode />Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="#action/3.1" className="flex gap-2 leading-none"><FcPortraitMode />Profile</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2"  className="flex gap-2 leading-none">
                <FcSettings /> Settings
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3"><TbLayoutDashboard /> Dashboard</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"  className="flex gap-2 leading-none"><TbLayoutDashboard /> Dashboard</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item href="#action/3.4"  className="flex gap-2 leading-none">
               <AiOutlineLogout /> Logout
               </NavDropdown.Item>
             </NavDropdown>
             {/* <Nav.Link to='/'><FaUserAlt  /></Nav.Link> */}
             <Nav.Link eventKey={2} to='/signin'>
-            <Button variant="secondary">Login</Button>
+            <Button className="bg-slate-800" >Login</Button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
