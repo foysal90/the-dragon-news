@@ -1,8 +1,12 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "../default/Main/Main";
-import Home from "../Home/Home";
+
 import Signin from "../default/SignIn/Signin";
+import Category from "../Pages/Category/Category";
+import NewsLayout from "../../layouts/NewsLayout";
+import News from "../Shared/News/News";
+import Home from "../default/Home/Home";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -12,17 +16,40 @@ const Router = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Category/>,
+          loader: () =>
+            fetch('http://localhost:5000/news') 
         },
         {
-            path: '/home',
-            element: <Home/>
+          path: "/home",
+          element: <Home />
+          
         },
         {
-          path: '/signin',
-          element: <Signin/>
-        }
+          path: "/category/:id",
+          element: <Category />,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/categories/${params.id}`),
+        },
+        {
+          path: "/signin",
+          element: <Signin />,
+        },
       ],
+    },
+    {
+      path: "/news",
+     element: <NewsLayout />,
+    //  loader: ({ params }) =>
+    //         fetch(`http://localhost:5000/news/${params.id}`),
+      children: [
+        {
+          path: ":id",
+          element: <News />,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/news/${params.id}`)
+        }
+      ]
     },
   ]);
   return (

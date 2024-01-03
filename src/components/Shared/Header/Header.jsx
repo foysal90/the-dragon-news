@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../../Home/Home";
+
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import moment from "moment";
@@ -46,10 +46,10 @@ const Header = () => {
        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">About</Nav.Link>
-            <Nav.Link href="#pricing">Career</Nav.Link>
+          <Nav className="mx-auto gap-2">
+            <Link to="/">Home</Link>
+            <Link to="">About</Link>
+            <Link to="#">Career</Link>
             
           </Nav>
           <Nav>

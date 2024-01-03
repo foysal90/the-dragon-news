@@ -4,9 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import AuthProviders from "./components/Providers/AuthProviders.jsx";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProviders>
+    
       <App />
     </AuthProviders>
   </React.StrictMode>

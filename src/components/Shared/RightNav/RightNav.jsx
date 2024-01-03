@@ -24,7 +24,7 @@ const RightNav = () => {
 
   return (
     <Container >
-      <h6  >Login With</h6>
+      <h6 className="mb-3" >Login With</h6>
       <div >
         <Button className="w-75 bg-light text-primary flex leading-none" onClick={handleGoogleSignIn}>
             <FcGoogle className="me-2 " /> Login with Google</Button>
