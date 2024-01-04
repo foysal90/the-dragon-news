@@ -7,6 +7,7 @@ import Category from "../Pages/Category/Category";
 import NewsLayout from "../../layouts/NewsLayout";
 import News from "../Shared/News/News";
 import Home from "../default/Home/Home";
+import Register from "../default/Register/Register";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const Router = () => {
         {
           path: "/signin",
           element: <Signin />,
+        },
+        {
+          path: "/register",
+          element: <Register/>
         },
       ],
     },
