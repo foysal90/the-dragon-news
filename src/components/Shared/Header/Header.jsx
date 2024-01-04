@@ -64,12 +64,15 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto gap-2">
               <Link to="/">Home</Link>
-              <Link to="">About</Link>
+              <Link to="/fakeApi">About</Link>
               <Link to="#">Career</Link>
             </Nav>
             <Nav>
+            {/* <div className="flex justify-center items-center">
+            {user ?  user.email : <FcPortraitMode /> }
+            </div> */}
               <NavDropdown
-                title={user && user.email}
+              title={user ?  user.email : <FcPortraitMode /> }
                 id="collapsible-nav-dropdown"
               >
                 <NavDropdown.Item
@@ -104,9 +107,10 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  
+                   
                   <Link to="/signin">
-                    Login
+                  
+                   <button> Login </button>
                   </Link>
                 </>
               )}
@@ -117,10 +121,14 @@ const Header = () => {
               {user ? (
                     <button  onClick={handleSingedOut}>Sign out</button>
                   ) : (
-                    <>
-                    <Link to="/signin"><button>Login</button></Link>
+                    <div >
                     
-                    </>
+                    <Link to="/signin" >
+                    
+                      <button className="mt-3" >Login</button>
+                      </Link>
+                    
+                    </div>
                   )}
             </Nav>
           </Navbar.Collapse>

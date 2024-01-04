@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Toast } from 'react-bootstrap';
+import { Button, Form, Toast } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Signin = () => {
@@ -37,13 +37,24 @@ const Signin = () => {
         <div>
             <Toaster/>
 
-            <form onSubmit={handleLogIn}>
-                <input type="email" name="email" id="email" placeholder='email' />
-                <br />
-                <input type="password" name="password" id="password" placeholder='password' />
-                <br />
-                <input type="submit" value="signIn" />
-            </form>
+            <Form onSubmit={handleLogIn}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" name='email' placeholder="Enter email" />
+       
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" name='password' placeholder="Password" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button className="bg-primary" type="submit">
+        Sign in
+      </Button>
+    </Form>
             <p>new here ? <Link to="/register">Register</Link></p>
             
         </div>

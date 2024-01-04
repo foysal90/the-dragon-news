@@ -9,6 +9,7 @@ import News from "../Shared/News/News";
 import Home from "../default/Home/Home";
 import Register from "../default/Register/Register";
 import PrivateRoute from "../Shared/ProtectedRoute/PrivateRoute";
+import FakeApi from "../FakeApi/FakeApi";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -42,6 +43,13 @@ const Router = () => {
           path: "/register",
           element: <Register/>
         },
+        {
+          path: '/fakeApi',
+          element: <FakeApi/>,
+          loader: () =>
+            fetch('https://newsapi.org/v2/everything?q=apple&from=2024-01-03&to=2024-01-03&sortBy=popularity&apiKey=838b5fb02deb4b808ab44571db09b43f') 
+          
+        }
       ],
     },
     {
