@@ -12,9 +12,9 @@ const NewsCard = ({ news }) => {
       <Card.Header className="flex  items-center">
         <Image className="h-8" src={author?.img} roundedCircle />
         <div className="ps-2 flex-grow-1">
-          <p className="mb-0"> {author.name}</p>
+          <p className="mb-0"> {author?.name}</p>
           <p>
-            <small>{moment(author.published_date).format("YYYY-MM-D")}</small>
+            <small>{moment(author?.published_date).format("YYYY-MM-D")}</small>
           </p>
         </div>
         <div className="flex">
@@ -25,11 +25,11 @@ const NewsCard = ({ news }) => {
         <Card.Title>{title}</Card.Title>
         <Card.Img variant="top" src={image_url} />
         <Card.Text>
-          {details.length < 250 ? (
+          {details?.length < 250 ? (
             <>{details}</>
           ) : (
             <>
-              {details.slice(0, 250)}.....{" "}
+              {details?.slice(0, 250)}.....{" "}
               <Link className="btn btn-link" to={`/news/${_id}`}>
                 Read More
               </Link>
