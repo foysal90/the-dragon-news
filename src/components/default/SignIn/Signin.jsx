@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Toast } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signin = () => {
     const {signIn, setUser} = useContext(AuthContext)
     const navigate = useNavigate()
+    
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const handleLogIn = (e)=>{
         e.preventDefault()
         const form = e.target;
@@ -15,14 +20,14 @@ const Signin = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             setUser(loggedUser)
-            navigate('/register')
-            console.log('signed in')
+            navigate(from, { replace: true });
+            toast.success('signed in')
             form.reset()
 
         })
         .catch(error => {
             console.log(error.message)
-            alert(error)
+            toast.error(error)
         })
 
     }
@@ -30,6 +35,7 @@ const Signin = () => {
     
     return (
         <div>
+            <Toaster/>
 
             <form onSubmit={handleLogIn}>
                 <input type="email" name="email" id="email" placeholder='email' />

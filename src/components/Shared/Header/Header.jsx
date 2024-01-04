@@ -11,12 +11,13 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { FcPortraitMode, FcSettings } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProviders";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext);
   // const userIcon = <FaUserAlt />;
   const navigate = useNavigate();
-  const [success, setSuccess] = useState('')
+  
 
   
 
@@ -25,16 +26,20 @@ const Header = () => {
   const handleSingedOut = () => {
    
     logOut().then(() => {
-      setSuccess("logged Out");
-      setSuccess('')
+      toast.success("logged Out");
+     
     
       navigate('/')
+      //STATE change to login
+        // setUser(null)
       
      
     });
   };
   return (
+   
     <Container>
+       <Toaster/>
       <div className="text-center">
         <img className="mx-auto" src={logo} alt="" />
         <p className="text-secondary">
@@ -108,7 +113,7 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown>
               {/* <Nav.Link to='/'><FaUserAlt  /></Nav.Link> */}
-              <p>{success}</p>
+            
               {user ? (
                     <button  onClick={handleSingedOut}>Sign out</button>
                   ) : (
