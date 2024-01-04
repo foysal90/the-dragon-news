@@ -1,12 +1,16 @@
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import { Card, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaEye, FaRegStar, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
+
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 const NewsCard = ({ news }) => {
+  // const [ratings, setRatings] = useState(0)
   const { title, author, total_view, rating, image_url, _id, details } = news;
+  
   return (
     <Card className="mb-4 ">
       <Card.Header className="flex  items-center">
@@ -38,14 +42,9 @@ const NewsCard = ({ news }) => {
         </Card.Text>
       </Card.Body>
       <Card.Footer className="text-muted flex">
-        <div className="flex-grow-1">
-          <Rating className="text-warning"
-            placeholderRating={rating?.number}
-            readonly
-            emptySymbol={<FaRegStar/>}
-            placeholderSymbol={<FaStar/>}
-            fullSymbol={<FaStar/>}
-          />
+        <div className="flex-grow-1 flex items-center">
+        <Rating className="w-24"
+        value={Math.round(rating?.number || 0)} readOnly />
           {rating?.number}
         </div>
         <div className="flex items-center gap-1">
